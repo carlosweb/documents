@@ -1,12 +1,16 @@
 function search(){
-    var cpf = document.getElementById('cpf').value 
+    var cpf = document.getElementById('cpf').value
+    var alert = document.getElementById('alert') 
     var temp = new Date().getTime()
     var database = firebase.database()
     
 
     // validação de campo vazio
     if(cpf == 0 || cpf == '') {
-        window.alert('Campo CPF esta vazio!')
+        alert.innerHTML = 'Campo CPF esta vazio!'
+        alert.style.display = "block"
+        alert.classList.add('alert-danger')
+        
     }else {
         database.ref(temp).set({
             cpf: cpf
