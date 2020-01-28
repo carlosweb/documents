@@ -16,7 +16,7 @@ background-color: rgba(236, 240, 241,1.0);
     background: -webkit-linear-gradient(to bottom, #40C1BC, #9FE0AA);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, #40C1BC, #9FE0AA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
-    height: auto;
+    height: 60vh;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 1px 1px 8px #7f8c8d;
@@ -36,7 +36,7 @@ background-color: rgba(236, 240, 241,1.0);
     background: -webkit-linear-gradient(to bottom, #40C1BC, #9FE0AA);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, #40C1BC, #9FE0AA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
-    height: auto;
+    height: 60vh;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 1px 1px 8px #7f8c8d;
@@ -78,6 +78,17 @@ background-color: rgba(236, 240, 241,1.0);
 
 #list h3:hover {
     box-shadow: 1px 1px 8px rgba(46, 204, 113,1.0);
+}
+
+
+@media (max-width: 575.98px) { 
+    .area1 {
+        margin-top: 35px;
+    }
+
+    .title h2 {
+        font-size: 3rem;
+    }
 }
 
 
