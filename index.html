@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project Docments</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="">
+    <div id="busca">
         <input type="number" id="cpf" placeholder="Digite seu CPF">
         <input type="button" value="Pesquisar" onclick="search()">
     </div>
     
-    <div class="">
-        <div id="list">
-        </div>
+    <div id="resultdado"class="ocultar">
+        <div id="list"></div>
+        <input type="button" value="Voltar" onclick="back()">
     </div>
     
-    
 </body>
-
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
 <script src="js/documents.js"></script>
+<script src="js/init.js"></script>
+
+
 </html>
