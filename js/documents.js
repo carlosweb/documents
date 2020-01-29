@@ -1,7 +1,6 @@
 function search(){
     var cpf = document.getElementById('cpf').value
     var alert = document.getElementById('alert') 
-
     // validação de campo vazio
     if(cpf == 0 || cpf == '') {
         alert.innerHTML = 'Campo CPF esta vazio!'
@@ -42,10 +41,20 @@ function listFiles(cpfValue) {
     var fileLinks = []
     storage.ref().child(cpfValue).listAll().then(function(todosArquivos){
         files = todosArquivos.items
+        
         for(let i=0; i<files.length; i++){
             fileNames.push(files[i].name)
             storage.ref(cpfValue+'/'+fileNames[i]).getDownloadURL().then(function(url){
-                console.log(url)
+             
+                var ul = document.getElementById('listLinks')
+                var li = document.createElement('li')
+                var listItem = `<li><a href='${url}' target='_blank'> ${fileNames[i]} </a></li>`
+                li.innerHTML = listItem
+                ul.appendChild(li)
+
+               
+            }).catch(function(error){
+                console.log(error)
             })
         }
     })
