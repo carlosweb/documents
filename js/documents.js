@@ -24,6 +24,7 @@ function validation(cpfValue) {
     .then(function(todosArquivos){
        
         if(todosArquivos.items.length >= 1){
+            listFiles(cpfValue)
             next(cpfValue)
         } else {
             alert('cpf não cadastrado')
@@ -33,10 +34,26 @@ function validation(cpfValue) {
     })
 }
 
+function listFiles(cpfValue) {
+    document.getElementById('list').innerHTML = `<h3>Certificado de: ${cpfValue} </h3> `
+    var storage = firebase.storage()
+    var files
+    var fileNames = []
+    var fileLinks = []
+    storage.ref().child(cpfValue).listAll().then(function(todosArquivos){
+        files = todosArquivos.items
+        for(let i=0; i<files.length; i++){
+            fileNames.push(files[i].name)
+            storage.ref(cpfValue+'/'+fileNames[i]).getDownloadURL().then(function(url){
+                console.log(url)
+            })
+        }
+    })
+}
+
 function next(cpfValue){
     document.getElementById('busca').setAttribute('class', 'ocultar')
     document.getElementById('resultdado').removeAttribute('class', 'ocultar')
-    document.getElementById('list').innerHTML = `<h3>Certificado de: ${cpfValue} </h3> `
 }
 
 function back(){
